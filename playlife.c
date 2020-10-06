@@ -41,8 +41,8 @@ int main(int argc, char *argv[]) {
 			// assuming that file line is formatted with single spaces
 			// inbetween different alphanumeric characters
 			fscanf(fp, "%c %d %d", &op, &row_op, &col_op);
-			printf("%c %d %d\n", op, row_op, col_op); 
 		}
+
 	}
 	
 	return 0;
