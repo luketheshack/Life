@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 #include "lifefunc.h"
 
 const int MAX = 40;
@@ -33,11 +34,18 @@ int main(int argc, char *argv[]) {
 			return 1;
 		}
 
+		char line[10];
+		char op;
+		int row_op, col_op;
 		while (1) {
-			if (feof(fp)) break;
-			char line[10];
 			fgets(line, 10, fp);
+			if (feof(fp)) break;
 			if (line[0] == 'p') break;
+			// assuming that file line is formatted with single spaces
+			// inbetween different alphanumeric characters
+			op = line[0];
+			row_op = line[2];
+			col_op = line[4];
 		}
 	}
 	
