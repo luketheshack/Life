@@ -34,18 +34,14 @@ int main(int argc, char *argv[]) {
 			return 1;
 		}
 
-		char line[10];
 		char op;
 		int row_op, col_op;
 		while (1) {
-			fgets(line, 10, fp);
 			if (feof(fp)) break;
-			if (line[0] == 'p') break;
 			// assuming that file line is formatted with single spaces
 			// inbetween different alphanumeric characters
-			op = line[0];
-			row_op = line[2];
-			col_op = line[4];
+			fscanf(fp, "%c %d %d", &op, &row_op, &col_op);
+			printf("%c %d %d\n", op, row_op, col_op); 
 		}
 	}
 	
