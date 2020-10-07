@@ -8,3 +8,4 @@ void add_live_cell(char [][maxsize], int row, int col);
 void make_dead_cell(char [][maxsize], int row, int col);
 void advance_simulation(char [][maxsize], char [][maxsize]);
 char solve_cell(char [][maxsize], int row, int col);
+void display_board(char [][maxsize]);
