@@ -52,3 +52,13 @@ void display_board(char real[][maxsize]) {
 		printf("\n");
 	}
 }
+
+void add_live_cell(char real[][], int row, int col) {
+	real[row][col] = 'X';
+	return;
+}
+
+void make_dead_cell(char real[][], int row, int col) {
+	real[row][col] = ' ';
+	return;
+}

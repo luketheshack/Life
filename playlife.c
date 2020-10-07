@@ -5,13 +5,13 @@
 #include "lifefunc.h"
 
 int main(int argc, char *argv[]) {
-	char current[MAX][MAX];
-	char temp[MAX][MAX];
+	char real[maxsize][maxsize];
+	char temp[maxsize][maxsize];
 	int i, j;
 
-	for (i = 0; i < MAX; i++) {
-		for (j = 0; j < MAX; j++) {
-			current[i][j] = ' ';
+	for (i = 0; i < maxsize; i++) {
+		for (j = 0; j < maxsize; j++) {
+			real[i][j] = ' ';
 			temp[i][j] = ' ';
 		}
 	}
@@ -38,10 +38,29 @@ int main(int argc, char *argv[]) {
 			if (feof(fp)) break;
 			// assuming that file line is formatted with single spaces
 			// inbetween different alphanumeric characters
-			//
 			fscanf(fp, "%c %d %d", &op, &row_op, &col_op);
+			if (op == 'a') { // live cell
+				add_live_cell(real, row_op, col_op);	
+			}
+			if (op == 'r') { // make cell dead
+				make_cell_dead(real, row_op, col_op);
+			}
+			if (op == 'p') { // play game
+				break;
+			}
 		}
-
+		
+		while (1) {
+			// display board
+			display_board(real);
+			// advance simulation
+			advance_simulation(real, temp);
+			// wait
+			usleep(500000);
+			// clear screen
+			system("clear");
+		}
+		
 	}
 	
 	return 0;
