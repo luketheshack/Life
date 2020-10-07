@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 				add_live_cell(real, row_op, col_op);	
 			}
 			if (op == 'r') { // make cell dead
-				make_cell_dead(real, row_op, col_op);
+				make_dead_cell(real, row_op, col_op);
 			}
 			if (op == 'p') { // play game
 				break;

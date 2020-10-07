@@ -7,7 +7,7 @@
 #include <string.h>
 #include "lifefunc.h"
 
-void solve_cell(char temp[][maxsize], int row, int col) {
+char solve_cell(char temp[][maxsize], int row, int col) {
 	int liveneighbors = 0, deadneighbors = 0;
 	int i, j;
 	// check locations around temp[row][col]
@@ -21,7 +21,7 @@ void solve_cell(char temp[][maxsize], int row, int col) {
 		}
 	}
 	if (temp[row][col] == ' ' && liveneighbors == 3) return 'X';
-	if (temp[row][col] == 'X' && !(liveneighbors == 2 || liveneighbors == 3) return ' ';
+	if (temp[row][col] == 'X' && !(liveneighbors == 2 || liveneighbors == 3)) return ' ';
 	else return temp[row][col];
 }
 
@@ -53,12 +53,12 @@ void display_board(char real[][maxsize]) {
 	}
 }
 
-void add_live_cell(char real[][], int row, int col) {
+void add_live_cell(char real[][maxsize], int row, int col) {
 	real[row][col] = 'X';
 	return;
 }
 
-void make_dead_cell(char real[][], int row, int col) {
+void make_dead_cell(char real[][maxsize], int row, int col) {
 	real[row][col] = ' ';
 	return;
 }
