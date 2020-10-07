@@ -2,7 +2,7 @@
 // Fundamentals of Computing : Lab #7
 // lifefunc.h
 
-const int maxsize = 40;
+#define maxsize 40
 
 void add_live_cell(char [][maxsize], int row, int col);
 void make_dead_cell(char [][maxsize], int row, int col);

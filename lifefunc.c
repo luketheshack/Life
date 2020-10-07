@@ -45,9 +45,8 @@ void display_board(char real[][maxsize]) {
 	int i, j;
 	printf("\n\n");
 	for (i = 0; i < maxsize; i++) {
-		printf("   ");
 		for (j = 0; j < maxsize; j++) {
-			printf("%c", real[i][j]);
+			printf("%c ", real[i][j]);
 		}
 		printf("\n");
 	}
