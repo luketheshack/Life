@@ -7,6 +7,8 @@
 #include <string.h>
 #include "lifefunc.h"
 
+// GLIDER NOT WORKING PROPERLY, WHY
+
 char solve_cell(char temp[][maxsize], int row, int col) {
 	int liveneighbors = 0, deadneighbors = 0;
 	int i, j;
