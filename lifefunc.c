@@ -64,13 +64,25 @@ void make_dead_cell(char real[][maxsize], int row, int col) {
 	return;
 }
 
-char get_input() {
+char get_input(int maxsize) {
 	char c;
+	int a = 0, b = 0;
 	printf("Enter an operation: \n");
 	printf("a followed by two integers: add new live cell at the specified coordinates\n");
 	printf("r followed by two integers: make cell at specified coordinates dead\n");
 	printf("n: advance the simulation to the next iteration\n");
 	printf("q: quit the program\n");
 	printf("p: play the game continuously\n");
-	scanf("%c", &c);
+	scanf("%c %d %d", &c, &a, &b);
+	
+	if (c != 'a' && c != 'r' &&  c != 'n' && c != 'q' && c != 'p') {
+		printf("\nYou entered a bad character. Please try again.\n");
+		return get_input(maxsize);
+	}
+	if (a >= maxsize || b >= maxsize) {
+		printf("\nYou entered a bad number. Please try again.\n");
+		return get_input(maxsize);
+	}
+
+	return c;
 }

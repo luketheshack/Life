@@ -19,7 +19,29 @@ int main(int argc, char *argv[]) {
 	if (argc == 1) {
 		// interactive mode
 		printf("Playing in interactive mode... \n");
-		
+		char inp;
+		inp = get_input();
+		// CAnnot actrually do it this way, need function to return char and coordinates
+		while (inp != 'q' || inp != 'p') {
+			switch (inp) {
+				case 'a':
+
+				case 'r':
+
+				case 'n':
+			}
+		}
+		if (inp == 'q') {
+			printf("Goodbye!\n");
+			return 0;	
+		}	
+		else {
+			while (1) {
+				display_board(real);
+				advance_simulation(real, temp);
+			}
+		}
+		return 0;
 	}
 
 	else {
