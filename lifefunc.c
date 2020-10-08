@@ -16,15 +16,15 @@ char solve_cell(char temp[][maxsize], int row, int col) {
 	for (i = -1; i <= 1; i++) {
 		for (j = -1; j <= 1; j++) {
 			// conditional statement to account for where in board (corner, edge, etc.)
-			if (!(row+i >= maxsize || col+i >= maxsize || row+i < 0 || col+i < 0 || (row == 0 && col == 0))) {
+			if (!(row+i >= maxsize || col+i >= maxsize || row+i < 0 || col+i < 0 || (i == 0 && j == 0))) {
 				if (temp[row+i][col+i] == ' ') deadneighbors++;
 				if (temp[row+i][col+i] == 'X') liveneighbors++;
 			}
 		}
 	}
 	if (temp[row][col] == ' ' && liveneighbors == 3) return 'X';
-	if (temp[row][col] == 'X' && !(liveneighbors == 2 || liveneighbors == 3)) return ' ';
-	else return temp[row][col];
+	if (temp[row][col] == 'X' && (liveneighbors == 2 || liveneighbors == 3) return 'X';
+	else return ' ';
 }
 
 void advance_simulation(char real[][maxsize], char temp[][maxsize]) {
@@ -62,4 +62,15 @@ void add_live_cell(char real[][maxsize], int row, int col) {
 void make_dead_cell(char real[][maxsize], int row, int col) {
 	real[row][col] = ' ';
 	return;
+}
+
+char get_input() {
+	char c;
+	printf("Enter an operation: \n");
+	printf("a followed by two integers: add new live cell at the specified coordinates\n");
+	printf("r followed by two integers: make cell at specified coordinates dead\n");
+	printf("n: advance the simulation to the next iteration\n");
+	printf("q: quit the program\n");
+	printf("p: play the game continuously\n");
+	scanf("%c", &c);
 }

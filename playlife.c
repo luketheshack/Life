@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 	if (argc == 1) {
 		// interactive mode
 		printf("Playing in interactive mode... \n");
-
+		
 	}
 
 	else {
