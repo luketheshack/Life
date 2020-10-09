@@ -37,26 +37,33 @@ int main(int argc, char *argv[]) {
 					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
 						printf("Invalid coordinates. Please try again.\n");
 						break;
-						add_live_cell(real, a, b);
 					}
+					add_live_cell(real, a, b);
+					break;
 
 				case 'r':
 					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
 						printf("Invalid coordinates. Please try again.\n");
 						break;
-						make_dead_cell(real, a, b);
 					}
+					make_dead_cell(real, a, b);
+					break;
+
 				case 'n':
 					advance_simulation(real, temp);
 					display_board(real);
+					break;
+
 				case 'p':
 					while (1) {
 						advance_simulation(real, temp);
 						display_board(real);
 					}
+
 				case 'q':
 					printf("Goodbye!\n");
 					return 0;
+
 				default:
 					printf("You entered an invalid operation. Please try again!\n");
 					break;

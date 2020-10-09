@@ -46,12 +46,26 @@ void advance_simulation(char real[][maxsize], char temp[][maxsize]) {
 void display_board(char real[][maxsize]) {
 	int i, j;
 	printf("\n\n");
+	// adding borders:
+	printf("#");
 	for (i = 0; i < maxsize; i++) {
+		printf("--");
+	}
+	printf("#\n");
+
+	for (i = 0; i < maxsize; i++) {
+		printf("|");
 		for (j = 0; j < maxsize; j++) {
 			printf("%c ", real[i][j]);
 		}
-		printf("\n");
+		printf("|\n");
 	}
+
+	printf("#");
+	for (i = 0; i < maxsize; i++) {
+		printf("--");
+	}
+	printf("#");
 }
 
 void add_live_cell(char real[][maxsize], int row, int col) {
