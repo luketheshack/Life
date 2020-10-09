@@ -23,7 +23,7 @@ char solve_cell(char temp[][maxsize], int row, int col) {
 		}
 	}
 	if (temp[row][col] == ' ' && liveneighbors == 3) return 'X';
-	if (temp[row][col] == 'X' && (liveneighbors == 2 || liveneighbors == 3) return 'X';
+	if (temp[row][col] == 'X' && (liveneighbors == 2 || liveneighbors == 3)) return 'X';
 	else return ' ';
 }
 
@@ -64,6 +64,7 @@ void make_dead_cell(char real[][maxsize], int row, int col) {
 	return;
 }
 
+/*
 char get_input(int maxsize) {
 	char c;
 	int a = 0, b = 0;
@@ -86,3 +87,4 @@ char get_input(int maxsize) {
 
 	return c;
 }
+*/

@@ -19,28 +19,51 @@ int main(int argc, char *argv[]) {
 	if (argc == 1) {
 		// interactive mode
 		printf("Playing in interactive mode... \n");
-		char inp;
-		inp = get_input();
-		// CAnnot actrually do it this way, need function to return char and coordinates
-		while (inp != 'q' || inp != 'p') {
+		char inp = '\0';
+		int a, b;
+		while (inp != 'q' && inp != 'p') {
+			a = -1;
+			b = -1;
+			printf("\nEnter an operation: \n");
+			printf("a followed by two integers: add new live cell at the specified coordinates\n");
+			printf("r followed by two integers: make cell at specified coordinates dead\n");
+			printf("n: advance the simulation to the next iteration\n");
+			printf("q: quit the program\n");
+			printf("p: play the game continuously\n");
+			scanf("%c %d %d", &inp, &a, &b);
+			
 			switch (inp) {
 				case 'a':
+					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
+						printf("Invalid coordinates. Please try again.\n");
+						break;
+						add_live_cell(real, a, b);
+					}
 
 				case 'r':
-
+					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
+						printf("Invalid coordinates. Please try again.\n");
+						break;
+						make_dead_cell(real, a, b);
+					}
 				case 'n':
+					advance_simulation(real, temp);
+					display_board(real);
+				case 'p':
+					while (1) {
+						advance_simulation(real, temp);
+						display_board(real);
+					}
+				case 'q':
+					printf("Goodbye!\n");
+					return 0;
+				default:
+					printf("You entered an invalid operation. Please try again!\n");
+					break;
 			}
+			
 		}
-		if (inp == 'q') {
-			printf("Goodbye!\n");
-			return 0;	
-		}	
-		else {
-			while (1) {
-				display_board(real);
-				advance_simulation(real, temp);
-			}
-		}
+		
 		return 0;
 	}
 
