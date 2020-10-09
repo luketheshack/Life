@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 			printf("q: quit the program\n");
 			printf("p: play the game continuously\n");
 			scanf("%c %d %d", &inp, &a, &b);
-			
+			printf("%c %d %d\n:", inp, a, b);	
 			switch (inp) {
 				case 'a':
 					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
