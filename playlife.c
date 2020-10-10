@@ -92,10 +92,10 @@ int main(int argc, char *argv[]) {
 			// inbetween different alphanumeric characters
 			fscanf(fp, "%c %d %d", &op, &row_op, &col_op);
 			if (op == 'a') { // live cell
-				add_live_cell(real, row_op, col_op);	
+				add_live_cell(real, col_op, row_op);	 // switched row, col
 			}
 			if (op == 'r') { // make cell dead
-				make_dead_cell(real, row_op, col_op);
+				make_dead_cell(real, col_op, row_op);
 			}
 			if (op == 'p') { // play game
 				break;

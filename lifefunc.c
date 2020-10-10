@@ -65,7 +65,7 @@ void display_board(char real[][maxsize]) {
 	for (i = 0; i < maxsize; i++) {
 		printf("--");
 	}
-	printf("#");
+	printf("#\n");
 }
 
 void add_live_cell(char real[][maxsize], int row, int col) {
