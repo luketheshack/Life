@@ -61,9 +61,9 @@ int main(int argc, char *argv[]) {
 				case 'p':
 					while (1) {
 						advance_simulation(real, temp);
+						display_board(real);
 						usleep(250000);
 						system("clear");
-						display_board(real);
 					}
 
 				case 'q':
@@ -99,10 +99,10 @@ int main(int argc, char *argv[]) {
 			// inbetween different alphanumeric characters
 			fscanf(fp, "%c %d %d", &op, &row_op, &col_op);
 			if (op == 'a') { // live cell
-				add_live_cell(real, row_op, col_op);
+				add_live_cell(real, col_op, row_op);
 			}
 			if (op == 'r') { // make cell dead
-				make_dead_cell(real, row_op, col_op);
+				make_dead_cell(real, col_op, row_op);
 			}
 			if (op == 'p') { // play game
 				break;

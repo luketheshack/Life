@@ -68,12 +68,12 @@ void display_board(char real[][maxsize]) {
 }
 
 void add_live_cell(char real[][maxsize], int row, int col) {
-	real[col][row] = 'X';
+	real[row][col] = 'X';
 	return;
 }
 
 void make_dead_cell(char real[][maxsize], int row, int col) {
-	real[col][row] = ' ';
+	real[row][col] = ' ';
 	return;
 }
 
