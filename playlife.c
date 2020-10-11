@@ -1,3 +1,7 @@
+// Luke Marushack
+// Fundamentals of Computing : Lab #7
+// playlife.c
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -31,7 +35,7 @@ int main(int argc, char *argv[]) {
 			printf("q: quit the program\n");
 			printf("p: play the game continuously\n");
 			scanf("%c %d %d", &inp, &a, &b);
-			printf("%c %d %d\n:", inp, a, b);	
+			
 			switch (inp) {
 				case 'a':
 					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
@@ -57,6 +61,8 @@ int main(int argc, char *argv[]) {
 				case 'p':
 					while (1) {
 						advance_simulation(real, temp);
+						usleep(250000);
+						system("clear");
 						display_board(real);
 					}
 
@@ -66,6 +72,7 @@ int main(int argc, char *argv[]) {
 
 				default:
 					printf("You entered an invalid operation. Please try again!\n");
+					printf("\n%c\n", inp);
 					break;
 			}
 			
@@ -92,10 +99,10 @@ int main(int argc, char *argv[]) {
 			// inbetween different alphanumeric characters
 			fscanf(fp, "%c %d %d", &op, &row_op, &col_op);
 			if (op == 'a') { // live cell
-				add_live_cell(real, col_op, row_op);
+				add_live_cell(real, row_op, col_op);
 			}
 			if (op == 'r') { // make cell dead
-				make_dead_cell(real, col_op, row_op);
+				make_dead_cell(real, row_op, col_op);
 			}
 			if (op == 'p') { // play game
 				break;

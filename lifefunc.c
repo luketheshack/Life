@@ -7,8 +7,6 @@
 #include <string.h>
 #include "lifefunc.h"
 
-// GLIDER NOT WORKING PROPERLY, WHY
-
 char solve_cell(char temp[][maxsize], int row, int col) {
 	int liveneighbors = 0, deadneighbors = 0;
 	int i, j;
@@ -18,12 +16,11 @@ char solve_cell(char temp[][maxsize], int row, int col) {
 		for (j = -1; j <= 1; j++) {
 			// conditional statement to account for where in board (corner, edge, etc.)
 			if (!(row+i >= maxsize || col+i >= maxsize || row+i < 0 || col+i < 0 || (i == 0 && j == 0))) {
-				if (temp[row+i][col+i] == ' ') deadneighbors++;
-				if (temp[row+i][col+i] == 'X') liveneighbors++;
+				if (temp[row+i][col+j] == ' ') deadneighbors++;
+				if (temp[row+i][col+j] == 'X') liveneighbors++;
 			}
 		}
 	}
-	printf("%d %d\n", liveneighbors, deadneighbors);
 	if (temp[row][col] == ' ' && liveneighbors == 3) return 'X';
 	if (temp[row][col] == 'X' && (liveneighbors == 2 || liveneighbors == 3)) return 'X';
 	else return ' ';
@@ -71,12 +68,12 @@ void display_board(char real[][maxsize]) {
 }
 
 void add_live_cell(char real[][maxsize], int row, int col) {
-	real[row][col] = 'X';
+	real[col][row] = 'X';
 	return;
 }
 
 void make_dead_cell(char real[][maxsize], int row, int col) {
-	real[row][col] = ' ';
+	real[col][row] = ' ';
 	return;
 }
 
