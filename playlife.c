@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 	if (argc == 1) {
 		// interactive mode
 		printf("Playing in interactive mode... \n");
-		char inp = '\0';
+		char inp;
 		int a, b;
 		while (inp != 'q' && inp != 'p') {
 			a = -1;
@@ -34,23 +34,28 @@ int main(int argc, char *argv[]) {
 			printf("n: advance the simulation to the next iteration\n");
 			printf("q: quit the program\n");
 			printf("p: play the game continuously\n");
-			scanf("%c %d %d", &inp, &a, &b);
-			
+			//scanf("%c %d %d", &inp, &a, &b);
+			scanf("%s", &inp);
+
 			switch (inp) {
 				case 'a':
+					scanf("%d %d", &a, &b);
 					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
 						printf("Invalid coordinates. Please try again.\n");
 						break;
 					}
 					add_live_cell(real, a, b);
+					display_board(real);
 					break;
 
 				case 'r':
+					scanf("%d %d", &a, &b);
 					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
 						printf("Invalid coordinates. Please try again.\n");
 						break;
 					}
 					make_dead_cell(real, a, b);
+					display_board(real);
 					break;
 
 				case 'n':
