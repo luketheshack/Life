@@ -115,7 +115,7 @@ int main(int argc, char *argv[]) {
 			// advance simulation
 			advance_simulation(real, temp);
 			// wait
-			usleep(25000000);
+			usleep(250000);
 			// clear screen
 			system("clear");
 		}
