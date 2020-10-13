@@ -94,38 +94,31 @@ int main(int argc, char *argv[]) {
 		if (!fp) {
 			printf("File not found. Quitting program ... \n");
 			return 1;
-		}
-
+		} 
+		
 		char op;
 		int row_op, col_op;
+		
 		while (1) {
 			if (feof(fp)) break;
-			// assuming that file line is formatted with single spaces
-			// inbetween different alphanumeric characters
 			fscanf(fp, "%c %d %d", &op, &row_op, &col_op);
 			if (op == 'a') { // live cell
 				add_live_cell(real, col_op, row_op);
 			}
-			if (op == 'r') { // make cell dead
+			if (op == 'r') { // dead cell
 				make_dead_cell(real, col_op, row_op);
 			}
-			if (op == 'p') { // play game
-				break;
-			}
+			if (op == 'p') break; // play game
 		}
-		
+
 		while (1) {
-			// display board
 			display_board(real);
-			// advance simulation
 			advance_simulation(real, temp);
-			// wait
 			usleep(250000);
-			// clear screen
 			system("clear");
 		}
-		
 	}
-	
+
 	return 0;
-}
+}	
+	
