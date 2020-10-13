@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 			switch (inp) {
 				case 'a':
 					scanf("%d %d", &a, &b);
-					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
+					if (a >= maxsize || b >= maxsize || a < 0 || b < 0) {
 						printf("Invalid coordinates. Please try again.\n");
 						break;
 					}
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 
 				case 'r':
 					scanf("%d %d", &a, &b);
-					if (a >= 40 || b >= 40 || a < 0 || b < 0) {
+					if (a >= maxsize || b >= maxsize || a < 0 || b < 0) {
 						printf("Invalid coordinates. Please try again.\n");
 						break;
 					}
