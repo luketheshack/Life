@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
 	if (argc == 1) {
 		// interactive mode
 		printf("Playing in interactive mode... \n");
-		char inp;
+		char inp = '\0';
 		int a, b;
 		while (inp != 'q' && inp != 'p') {
 			a = -1;
